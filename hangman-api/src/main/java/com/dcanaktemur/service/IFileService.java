@@ -1,6 +1,8 @@
 package com.dcanaktemur.service;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -8,5 +10,5 @@ import java.util.stream.Stream;
  */
 public interface IFileService {
 
-    Stream<String> readFile(String path) throws IOException;
+    List<String> readFile(InputStream path) throws IOException;
 }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -48,8 +49,8 @@ public class GameService implements IGameService{
     @Override
     public Game startGame(Player player) throws IOException {
         Resource resource = resourceLoader.getResource("classpath:words.txt");
-        File wordsAsFile = resource.getFile();
-        String word = getRandomWord(fileService.readFile(wordsAsFile.getPath()));
+        InputStream wordsAsFile = resource.getInputStream();
+        String word = getRandomWord(fileService.readFile(wordsAsFile));
 
 
         Game game = new Game();
@@ -75,10 +76,9 @@ public class GameService implements IGameService{
         return sb.toString();
     }
 
-    private String getRandomWord(Stream<String> words) {
+    private String getRandomWord(List<String> words) {
         Random random = new Random();
-        List<String> wordsList = words.collect(Collectors.toList());
-        String randomWord = wordsList.get(random.nextInt(wordsList.size()));
+        String randomWord = words.get(random.nextInt(words.size()));
 
         return randomWord;
     }

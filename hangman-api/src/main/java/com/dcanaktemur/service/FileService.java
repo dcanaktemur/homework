@@ -1,11 +1,12 @@
 package com.dcanaktemur.service;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -15,10 +16,21 @@ import java.util.stream.Stream;
 public class FileService implements IFileService {
 
     @Override
-    public Stream<String> readFile(String path) throws IOException {
+    public List<String> readFile(InputStream stream) throws IOException {
 
-        Stream<String> linesForFile = Files.lines(Paths.get(path));
+        List<String>  linesForFile = new ArrayList<>();
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+
+        while(reader.ready()){
+            String line = reader.readLine();
+            linesForFile.add(line);
+        }
+
 
         return linesForFile;
+
+
+
     }
 }

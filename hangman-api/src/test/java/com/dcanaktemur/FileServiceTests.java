@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,8 +42,8 @@ public class FileServiceTests {
     @Test
     public void shouldReturnFileLinesWhenReadFileWithGivenPath() throws IOException {
         Resource resource = resourceLoader.getResource("classpath:words.txt");
-        File wordsAsFile = resource.getFile();
-        List<String> fileLines = fileService.readFile(wordsAsFile.getPath()).collect(Collectors.toList());
+        InputStream wordsAsFile = resource.getInputStream();
+        List<String> fileLines = fileService.readFile(wordsAsFile);
 
         Assert.assertNotNull(fileLines);
     }
