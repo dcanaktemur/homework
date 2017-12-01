@@ -6,7 +6,6 @@ import com.dcanaktemur.db.model.Game;
 import com.dcanaktemur.db.model.Player;
 import com.dcanaktemur.db.model.Word;
 import com.dcanaktemur.model.Guess;
-import com.dcanaktemur.service.FileService;
 import com.dcanaktemur.service.GameService;
 import com.dcanaktemur.service.IFileService;
 import com.dcanaktemur.service.IGameService;
@@ -22,7 +21,6 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 

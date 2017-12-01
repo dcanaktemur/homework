@@ -1,11 +1,7 @@
 package com.dcanaktemur;
 
-import com.dcanaktemur.controller.GameController;
 import com.dcanaktemur.controller.PlayerController;
-import com.dcanaktemur.db.PlayerRepository;
-import com.dcanaktemur.db.model.Game;
 import com.dcanaktemur.db.model.Player;
-import com.dcanaktemur.service.IGameService;
 import com.dcanaktemur.service.IPlayerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
@@ -22,7 +18,6 @@ import java.util.Arrays;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.willReturn;
 import static org.mockito.Matchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
