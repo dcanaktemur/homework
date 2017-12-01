@@ -70,5 +70,20 @@ public class PlayerServiceTests {
 
     }
 
+    @Test
+    public void shouldReturnPlayerWhenFetchPlayerInformationWithGivenPlayerId() throws Exception {
+        Player player = new Player();
+        player.setAge(18);
+        player.setName("test");
+        player.setId(2L);
+
+        Mockito.when(playerRepository.findOne(player.getId())).thenReturn(player);
+
+        Player resultPlayer = playerService.fetchPlayerInformation(player.getId());
+
+        Assert.assertNotNull(resultPlayer);
+
+        Assert.assertEquals(player.getName(),resultPlayer.getName());
+    }
 
 }

@@ -3,7 +3,6 @@ package com.dcanaktemur.service;
 import com.dcanaktemur.db.PlayerRepository;
 import com.dcanaktemur.db.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
