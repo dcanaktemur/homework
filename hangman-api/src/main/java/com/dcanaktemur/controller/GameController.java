@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.ResponseEntity.ok;
+import java.io.IOException;
 
 /**
  * Created by dogus on 11/27/17.
@@ -40,9 +40,13 @@ public class GameController {
      * Starts a new game for a player. Player object is used as a body to the request.
      */
     @RequestMapping(value = "/game", method = RequestMethod.POST,produces = "application/json",consumes = "application/json")
-    @ResponseBody
-    public Game startGame(@RequestBody Player player){
-       return gameService.startGame(player);
+    public ResponseEntity startGame(@RequestBody Player player){
+        try {
+            Game game = gameService.startGame(player);
+            return ResponseEntity.ok(game);
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Error(0,e.toString()));
+        }
     }
 
     /**

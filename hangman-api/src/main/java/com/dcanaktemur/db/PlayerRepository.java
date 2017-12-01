@@ -1,6 +1,5 @@
 package com.dcanaktemur.db;
 
-import com.dcanaktemur.db.model.Game;
 import com.dcanaktemur.db.model.Player;
 import org.springframework.data.repository.CrudRepository;
 

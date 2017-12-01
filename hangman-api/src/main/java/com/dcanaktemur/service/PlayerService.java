@@ -4,18 +4,19 @@ import com.dcanaktemur.db.PlayerRepository;
 import com.dcanaktemur.db.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by dogus on 11/28/17.
  */
-@Component
+@Service
 public class PlayerService implements IPlayerService {
 
     @Autowired
     PlayerRepository playerRepository;
 
     @Override
-    public Iterable<Player> listGames() {
+    public Iterable<Player> listPlayers() {
         return playerRepository.findAll();
     }
 

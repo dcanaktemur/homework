@@ -26,7 +26,7 @@ public class PlayerController {
     @RequestMapping(value = "/player",method = RequestMethod.GET,produces = "application/json")
     @ResponseBody
     public Iterable<Player> listPlayers(){
-        return playerService.listGames();
+        return playerService.listPlayers();
     }
 
 
